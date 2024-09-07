@@ -1,9 +1,9 @@
 // app/wallet/page.jsx
 "use client";
 import React, { useState } from "react";
-import GenerateMnemonic from "../../src/components/GenerateMnemonic";
-import EthWallet from "../../src/components/EthWallet";
-import SolWallet from "../../src/components/SolWallet";
+import GenerateMnemonic from "../../crypto-wallet/src/components/GenerateMnemonic";
+import EthWallet from "../src/components/EthWallet";
+import SolWallet from "../src/components/SolWallet";
 
 export default function WalletPage() {
   const [mnemonic, setMnemonic] = useState("");
