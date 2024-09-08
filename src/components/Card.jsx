@@ -1,9 +1,10 @@
 import React from "react";
 
 export const Card = ({ children }) => (
-  <div className="bg-slate-600  text-white shadow-md rounded-lg p-3 max-w-7xl min-h-2.5 mx-auto mb-6 ">
-    {children}
-  </div>
+  <div className="bg-slate-900 text-white shadow-md rounded-lg p-2 max-w-7xl   lg:mx-auto mb-6 m-3">
+  {children}
+</div>
+
 );
 
 export const CardHeader = ({ children }) => (
@@ -11,7 +12,7 @@ export const CardHeader = ({ children }) => (
 );
 
 export const CardTitle = ({ children }) => (
-  <h2 className="text-2xl font-bold m-5">{children}</h2>
+  <h2 className="text-3xl font-semibold m-5">{children}</h2>
 );
 
 export const CardDescription = ({ children }) => (

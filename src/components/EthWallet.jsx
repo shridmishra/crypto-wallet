@@ -44,21 +44,24 @@ const EthWallet = ({ mnemonic }) => {
   return (
     <Card className="flex flex-col p-4 ">
     <CardHeader className="mb-4">
-      <CardTitle className="text-xl font-semibold">Ethereum Public-Private Key Generator</CardTitle>
+      <CardTitle className="">Ethereum Wallet</CardTitle>
     </CardHeader>
     <CardContent className="w-full bg-slate-600 p-4 rounded-md">
       <div className="flex flex-col space-y-6 w-full">
         {keys.length > 0 ? (
           keys.map((key, index) => (
-            <div key={index} className="w-full p-4 bg-slate-800 rounded-lg shadow-md">
-              <div className="mb-2">
+            <div key={index} className="w-full p- bg-slate-800 rounded-lg shadow-md"> 
+            <div className="text-white bg-slate-700 p-2 mb-4 rounded w-full font-bold shadow">Wallet {index +1}</div>
+                
+              <div className="mb-2 p-4">
                 <strong>Public Key:</strong>
-                <span className="block break-all text-white">{key.address}</span>
-              </div>
-              <div>
+                <span className="block break-all text-white mb-2">{key.address}</span>
+                <div>
                 <strong>Private Key:</strong>
                 <span className="block break-all text-white">{key.privateKey}</span>
               </div>
+              </div>
+              
             </div>
           ))
         ) : (

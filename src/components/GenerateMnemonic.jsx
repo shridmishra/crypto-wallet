@@ -25,7 +25,7 @@ const GenerateMnemonic = ({ onMnemonicChange }) => {
   return (
     <Card className="flex flex-col p-4 ">
     <CardHeader className="mb-4">
-      {/* Add title or header content if needed */}
+     <CardTitle>Mnemonics</CardTitle>
     </CardHeader>
   
     <Button onClick={handleGenerateMnemonic} className="mb-4 ">
@@ -39,7 +39,7 @@ const GenerateMnemonic = ({ onMnemonicChange }) => {
           {mnemonic.split(" ").map((word, index) => (
             <div
               key={index}
-              className="bg-slate-800 text-white p-3 rounded-lg shadow-md flex-1 min-w-[150px] text-center"
+              className="bg-slate-600 text-white p-3 rounded-lg shadow-md flex-1 min-w-[150px] text-center"
             >
               {word}
             </div>
