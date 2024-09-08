@@ -38,7 +38,7 @@ export default function WalletPage() {
     <p>
       Designed & Developed By{' '}
       <strong> 
-        <a href="https://github.com/shridmishra" className="text-white hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/ShridMishra" className="text-white hover:underline" target="_blank" rel="noopener noreferrer">
         Shrid Mishra
       </a></strong>
      
