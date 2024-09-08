@@ -1,9 +1,11 @@
-// app/wallet/page.jsx
+// app/page.jsx
 "use client";
 import React, { useState } from "react";
 import GenerateMnemonic from "../src/components/GenerateMnemonic";
 import EthWallet from "../src/components/EthWallet";
 import SolWallet from "../src/components/SolWallet";
+import Button from "../src/ui/Button";
+
 
 export default function WalletPage() {
   const [mnemonic, setMnemonic] = useState("");
@@ -13,9 +15,12 @@ export default function WalletPage() {
   };
 
   return (
-    <div className="p-6 bg-black min-h-screen text-white">
-      <h1 className="text-3xl font-bold text-center mb-8">My Crypto Wallet</h1>
-
+    <div className="flex flex-col min-h-screen bg-slate-800 text-white font-poppins">
+    <header className="p-6">
+      <h1 className="text-3xl font-bold text-center mb-8">Crypto Wallet</h1>
+    </header>
+  
+    <main className="flex-grow">
       <GenerateMnemonic onMnemonicChange={handleMnemonicChange} />
       
       {mnemonic && (
@@ -24,6 +29,19 @@ export default function WalletPage() {
           <SolWallet mnemonic={mnemonic} />
         </>
       )}
-    </div>
+    </main>
+  
+    <footer className="p-6 text-center">
+    <p>
+      Designed & Developed By{' '}
+      <strong> 
+        <a href="https://github.com/shridmishra" className="text-white hover:underline" target="_blank" rel="noopener noreferrer">
+        Shrid Mishra
+      </a></strong>
+     
+    </p>
+    </footer>
+  </div>
+  
   );
 }

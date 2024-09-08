@@ -10,9 +10,8 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  Button,
-} from "./Card"; // Adjust path based on your project
-
+  } from "./Card"; // Adjust path based on your project
+import Button from "../ui/Button";
 const SolWallet = ({ mnemonic }) => {
   const [wallets, setWallets] = useState([]);
 
@@ -42,20 +41,33 @@ const SolWallet = ({ mnemonic }) => {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Solana Public-Private Key Generator</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button onClick={addWallet} className="mb-4">Add SOL Wallet</Button>
-        {wallets.length > 0 && wallets.map((wallet, index) => (
-          <div key={index} className="mb-4">
-            <div><strong>Public Key:</strong> {wallet.publicKey}</div>
-            <div><strong>Private Key:</strong> {wallet.privateKey}</div>
-          </div>
-        ))}
-      </CardContent>
-    </Card>
+    <Card className="flex flex-col items-center p-4">
+    <CardHeader className="mb-4">
+      <CardTitle className="text-xl font-semibold">Solana Public-Private Key Generator</CardTitle>
+    </CardHeader>
+    <CardContent className="w-full max-w-lg bg-slate-600 p-4 rounded-md">
+      <div className="space-y-4">
+        {wallets.length > 0 ? (
+          wallets.map((wallet, index) => (
+            <div key={index} className="w-full p-4 bg-slate-800 rounded-md shadow">
+              <div className="mb-2">
+                <strong>Public Key: </strong>
+                <span className="block break-all text-md text-white">{wallet.publicKey}</span>
+              </div>
+              <div>
+                <strong>Private Key: </strong>
+                <span className="block break-all text-md text-white">{wallet.privateKey}</span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="text-slate-200">No keys generated yet.</div>
+        )}
+      </div>
+    </CardContent>
+    <Button onClick={addWallet} className="mt-4">Generate SOL Keys</Button>
+  </Card>
+  
   );
 };
 

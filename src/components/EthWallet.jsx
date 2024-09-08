@@ -8,8 +8,9 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  Button,
 } from "./Card"; // Adjust path based on your project
+
+import Button from "../ui/Button";
 
 const EthWallet = ({ mnemonic }) => {
   const [keys, setKeys] = useState([]);
@@ -41,28 +42,33 @@ const EthWallet = ({ mnemonic }) => {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Ethereum Public-Private Key Generator</CardTitle>
-     
-      </CardHeader>
-      <CardContent>
-        <Button onClick={generateKeys} className="mb-4">Generate ETH Keys</Button>
-        <div className="space-y-4">
-         
-          {keys.length > 0 ? (
-            keys.map((key, index) => (
-              <div key={index} className="mb-4">
-                <div><strong>Public Key: </strong>{key.address}</div>
-                <div> <strong>Private Key: </strong>{key.privateKey}</div>
+    <Card className="flex flex-col p-4 ">
+    <CardHeader className="mb-4">
+      <CardTitle className="text-xl font-semibold">Ethereum Public-Private Key Generator</CardTitle>
+    </CardHeader>
+    <CardContent className="w-full bg-slate-600 p-4 rounded-md">
+      <div className="flex flex-col space-y-6 w-full">
+        {keys.length > 0 ? (
+          keys.map((key, index) => (
+            <div key={index} className="w-full p-4 bg-slate-800 rounded-lg shadow-md">
+              <div className="mb-2">
+                <strong>Public Key:</strong>
+                <span className="block break-all text-white">{key.address}</span>
               </div>
-            ))
-          ) : (
-            <div></div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+              <div>
+                <strong>Private Key:</strong>
+                <span className="block break-all text-white">{key.privateKey}</span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="text-slate-200">No keys generated yet.</div>
+        )}
+      </div>
+    </CardContent>
+    <Button onClick={generateKeys} className="mt-4 ">Generate ETH Keys</Button>
+  </Card>
+  
   );
 };
 

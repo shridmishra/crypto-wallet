@@ -8,8 +8,10 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  Button,
-} from "./Card"; // Adjust path based on your project
+  
+} from "./Card"; 
+
+import Button from "../ui/Button";
 
 const GenerateMnemonic = ({ onMnemonicChange }) => {
   const [mnemonic, setMnemonic] = useState("");
@@ -21,19 +23,32 @@ const GenerateMnemonic = ({ onMnemonicChange }) => {
   };
 
   return (
-    <Card>
-      <CardHeader>
-      
-      
-      </CardHeader>
-      <CardContent>
-        <Button onClick={handleGenerateMnemonic} className="mb-4 border">Generate Mnemonic</Button>
-        <div>
-         
-          <p>{mnemonic }</p>
+    <Card className="flex flex-col p-4 ">
+    <CardHeader className="mb-4">
+      {/* Add title or header content if needed */}
+    </CardHeader>
+  
+    <Button onClick={handleGenerateMnemonic} className="mb-4 ">
+      Generate Mnemonic
+    </Button>
+  
+    <CardContent className="w-full">
+      {/* Render mnemonic boxes only if mnemonic is not an empty string */}
+      {mnemonic && (
+        <div className="flex flex-wrap gap-2 p-3">
+          {mnemonic.split(" ").map((word, index) => (
+            <div
+              key={index}
+              className="bg-slate-800 text-white p-3 rounded-lg shadow-md flex-1 min-w-[150px] text-center"
+            >
+              {word}
+            </div>
+          ))}
         </div>
-      </CardContent>
-    </Card>
+      )}
+    </CardContent>
+  </Card>
+  
   );
 };
 
