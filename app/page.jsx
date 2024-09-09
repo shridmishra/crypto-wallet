@@ -16,7 +16,7 @@ export default function WalletPage() {
   };
 
   return (
-<div className="flex flex-col min-h-screen bg-slate-700 text-white font-poppins">
+<div className="flex flex-col min-h-screen bg-slate-500 text-white font-poppins">
   <header className="p-6 lg:px-32">
     <h1 className="text-3xl font-bold mb-5 flex items-center">
       <FaWallet className="mr-4" /> Crypto Wallet
